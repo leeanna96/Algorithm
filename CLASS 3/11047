@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main(void) {
+	int n, k;
+	cin >> n >> k;
+	int* a = new int[n];
+	for (int i = 0; i < n; i++)
+		cin >> a[i];
+	int c = 0; //동전 개수
+	int tmp = 0;
+	for (int i = n - 1;i>=0; i--) {
+		if (k >= a[i]) {
+			tmp = k / a[i];
+			k %= a[i];
+			c += tmp;
+		}
+		if (k == 0) break;
+	}
+	cout << c;
+}
